@@ -36,7 +36,7 @@ The code was build from scrap from the repository: [https://github.com/learncode
 
    <img src="/images/atum.png" width="300">
 
-- Qui the bot you need to select the new window created and press `q`. Or kill the execution in the command prompt.
+- For you to quit the bot you need select the new window created and press `q`. Or kill the execution in the command prompt.
 
 ## Check list
 
