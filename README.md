@@ -12,26 +12,29 @@ The code was build from scrap from the repository: [https://github.com/learncode
 
 ## How to use:
 
-- First open the game in `1024x768` resolution and `not fullscreen`. If the game is not in that resolution you need to change the values of some variables in the code (BAIT_POSITION, FISH_POSITION, FISH_WINDOW_POSITION), otherwise the bot will detect and click the wrongs place in the screen.
-- The code will look for a window that has the name: `Metin2`. If you have another window that have this same name is possible the script will capture this other window. But if you want to run the bot and keep this windows you need to move the window of the game to the first (You can just grab the window to begin). If you only have the game open, you dont need to worry about.
+- First open the game in `1024x768` resolution and `not fullscreen`. If the game is not in that resolution you need to change the values of some variables in the code (BAIT_POSITION, FISH_POSITION, FISH_WINDOW_POSITION), otherwise the bot will detect and click the wrong place in the screen.
+- The code will look for a window that has the name: `Metin2`. If you have another window that also have this same name is possible the script will capture this other window instead. But if you want to run the bot and keep this windows you need to move the window of the game to the first (You can just grab the window to begin). If you only have a game open you dont need to worry about.
 - Put the fish skill in the `1` hotkey and the bait in `2` hotkey. Equip your fishing rod.
 
    <img src="/images/actionbar.png" width="300">
 
 - The game window must to be all visible and not minimized.
-- Open the prompt of command (cmd) of the Windows as admin. If you open without that way the script will not be able to click inside the game.
+- Open the Windows CMD as admin. If you open without that way the script will not be able to click inside the game.
 - Activate the virtualenv if you have and install all requirements: `pip install -r requirements.txt`. Pip will install these follow libraries:
 
-	    -numpy==1.19.1
-		-opencv-python==4.3.0.36
-		-PyDirectInput==1.0.2
-		-pywin32==228
-- Try to look at the water to not confuse the fish detect (This will be fix soon).
+```
+numpy==1.19.1
+opencv-python==4.3.0.36
+PyDirectInput==1.0.2
+pywin32==228
+```
+
+- Try to look at the water for not confuse the fish detection (This will be fix soon).
 
    <img src="/images/look.jpg" width="300">
 
 - Execute the hack: `python hack.py`
-- When the bot is executing the game window must be visible all time and your mouse will used by the bot. This is a visual bot, so is kind impossible to you use your pc in the same time the bot is running because the bot you click with your mouse.
+- When the bot is executing, the game window must be visible all time and your mouse will used by the bot. This is a visual bot, so is kind impossible to you use your pc in the same time the bot is running because the bot you click with your mouse.
 - Sometimes you find a daily bonus, the bot is not yet prepared for his. You need to click in any option. (This will be fix soon).
 
    <img src="/images/atum.png" width="300">
