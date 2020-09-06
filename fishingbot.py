@@ -31,8 +31,8 @@ class FishingBot:
 
     # Load the needle image
 
-    needle_img = cv.imread('fiss.jpg', cv.IMREAD_UNCHANGED)
-    needle_img_clock = cv.imread('clock.jpg', cv.IMREAD_UNCHANGED)
+    needle_img = cv.imread('images/fiss.jpg', cv.IMREAD_UNCHANGED)
+    needle_img_clock = cv.imread('images/clock.jpg', cv.IMREAD_UNCHANGED)
 
     # Some time cooldowns
 
