@@ -32,6 +32,7 @@ class FishingBot:
     # Load the needle image
 
     needle_img = cv.imread('fiss.jpg', cv.IMREAD_UNCHANGED)
+    needle_img_clock = cv.imread('clock.jpg', cv.IMREAD_UNCHANGED)
 
     # Some time cooldowns
 
@@ -112,11 +113,23 @@ class FishingBot:
             self.fish_last_time = time()
         return None
 
+    def detect_minigame(self, haystack_img):
+        result = cv.matchTemplate(haystack_img, self.needle_img_clock, cv.TM_CCOEFF_NORMED)
+
+        min_val, max_val, min_loc, max_loc = cv.minMaxLoc(result)
+        if max_val > 0.9:
+            return True
+
+        return False
+
+
     def runHack(self):
         screenshot = self.wincap.get_screenshot()
 
         # crop and aply hsv filter
         crop_img = screenshot[self.FISH_WINDOW_POSITION[1]:self.FISH_WINDOW_POSITION[1]+self.FISH_WINDOW_SIZE[1],
+                            self.FISH_WINDOW_POSITION[0]:self.FISH_WINDOW_POSITION[0]+self.FISH_WINDOW_SIZE[0]]
+        detect_end_img = screenshot[self.FISH_WINDOW_POSITION[1]:self.FISH_WINDOW_POSITION[1]+self.FISH_WINDOW_SIZE[1],
                             self.FISH_WINDOW_POSITION[0]:self.FISH_WINDOW_POSITION[0]+self.FISH_WINDOW_SIZE[0]]
         crop_img = self.hsv_filter.apply_hsv_filter(crop_img)
 
@@ -163,37 +176,40 @@ class FishingBot:
                 self.timer_action = time()
                 self.state = 0
 
-        # Detect the fish
-        square_pos = self.detect(crop_img)
-
         # make the click
 
-        if (time() - self.timer_mouse) > 0.3 and square_pos and self.state == 3:
+        if (time() - self.timer_mouse) > 0.3 and self.state == 3 and self.detect_minigame(detect_end_img):
+            
+            # Detect the fish
 
-            # Recalculate the mouse position with the fish position
+            square_pos = self.detect(crop_img)
 
-            pos_x = square_pos[0]
-            pos_y = square_pos[1]
+            if square_pos:
 
-            center_x = self.FISH_WINDOW_SIZE[0]/2
-            center_y = self.FISH_WINDOW_SIZE[1]/2
+                # Recalculate the mouse position with the fish position
 
-            mouse_x = int(pos_x)
-            mouse_y = int(pos_y)
+                pos_x = square_pos[0]
+                pos_y = square_pos[1]
 
-            # Verify if the fish is in range
+                center_x = self.FISH_WINDOW_SIZE[0]/2
+                center_y = self.FISH_WINDOW_SIZE[1]/2
 
-            d = self.FISH_RANGE**2 - ((center_x-mouse_x)**2 + (center_y-mouse_y)**2)
+                mouse_x = int(pos_x)
+                mouse_y = int(pos_y)
 
-            # Make the click
+                # Verify if the fish is in range
 
-            if (d > 0):
-                self.timer_mouse = time()
+                d = self.FISH_RANGE**2 - ((center_x-mouse_x)**2 + (center_y-mouse_y)**2)
 
-                mouse_x = int(pos_x + self.FISH_WINDOW_POSITION[0] + self.wincap.offset_x)
-                mouse_y = int(pos_y + self.FISH_WINDOW_POSITION[1] + self.wincap.offset_y)
+                # Make the click
 
-                pydirectinput.click(x=mouse_x, y=mouse_y)
+                if (d > 0):
+                    self.timer_mouse = time()
+
+                    mouse_x = int(pos_x + self.FISH_WINDOW_POSITION[0] + self.wincap.offset_x)
+                    mouse_y = int(pos_y + self.FISH_WINDOW_POSITION[1] + self.wincap.offset_y)
+
+                    pydirectinput.click(x=mouse_x, y=mouse_y)
 
         cv.imshow('Minha Janela', crop_img)
 

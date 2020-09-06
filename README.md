@@ -30,10 +30,6 @@ PyDirectInput==1.0.2
 pywin32==228
 ```
 
-- Try to look at the water to not confuse the fish detection (This will be fixed soon).
-
-   <img src="/images/look.jpg" width="300">
-
 - Execute the hack: `python hack.py`
 - When the bot is executing, the game window must be visible at all times and your mouse will be used by the bot. This is a visual bot, so it's kind of impossible for you to use your pc at the same time the bot is running because the bot needs to click with your mouse.
 - Sometimes you'll find a daily bonus, the bot is not prepared for this yet. You need to click on any option. (This will be fixed soon).
@@ -47,7 +43,7 @@ pywin32==228
 
 - [x] Detect the fish.
 - [x] Make a macro to fish (Bait and throw).
-- [ ] Detect the fish only during the minigame.
+- [x] Detect the fish only during the minigame.
 - [ ] Detect the daily bonus and select any option.
 - [ ] Use the fish bait item.
 - [ ] Use fish item from the inventory to save space.
