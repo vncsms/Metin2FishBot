@@ -1,6 +1,6 @@
-import cv2 as cv
 import numpy as np
 import pydirectinput
+import cv2 as cv
 import math
 from time import time
 from windowcapture import WindowCapture
@@ -53,42 +53,6 @@ class FishingBot:
     state = 0
 
 
-    def shift_channel(self, c, amount):
-        if amount > 0:
-            lim = 255 - amount
-            c[c >= lim] = 255
-            c[c < lim] += amount
-        elif amount < 0:
-            amount = -amount
-            lim = amount
-            c[c <= lim] = 0
-            c[c > lim] -= amount
-        return c
-
-
-    def apply_hsv_filter(self, original_image):
-        # convert image to HSV
-        hsv = cv.cvtColor(original_image, cv.COLOR_BGR2HSV)
-
-        # add/subtract saturation and value
-        h, s, v = cv.split(hsv)
-        s = self.shift_channel(s, self.hsv_filter.sAdd)
-        s = self.shift_channel(s, -1*self.hsv_filter.sSub)
-        v = self.shift_channel(v, self.hsv_filter.vAdd)
-        v = self.shift_channel(v, -1*self.hsv_filter.vSub)
-        hsv = cv.merge([h, s, v])
-
-        # Set minimum and maximum HSV values to display
-        lower = np.array([self.hsv_filter.hMin, self.hsv_filter.sMin, self.hsv_filter.vMin])
-        upper = np.array([self.hsv_filter.hMax, self.hsv_filter.sMax, self.hsv_filter.vMax])
-        # Apply the thresholds
-        mask = cv.inRange(hsv, lower, upper)
-        result = cv.bitwise_and(hsv, hsv, mask=mask)
-
-        # convert back to BGR for imshow() to display it properly
-        img = cv.cvtColor(result, cv.COLOR_HSV2BGR)
-
-        return img
 
 
     def detect(self, haystack_img):
@@ -154,7 +118,7 @@ class FishingBot:
         # crop and aply hsv filter
         crop_img = screenshot[self.FISH_WINDOW_POSITION[1]:self.FISH_WINDOW_POSITION[1]+self.FISH_WINDOW_SIZE[1],
                             self.FISH_WINDOW_POSITION[0]:self.FISH_WINDOW_POSITION[0]+self.FISH_WINDOW_SIZE[0]]
-        crop_img = self.apply_hsv_filter(crop_img)
+        crop_img = self.hsv_filter.apply_hsv_filter(crop_img)
 
         # Print some information
 
