@@ -31,6 +31,7 @@ pywin32==228
 ```
 
 - Execute the hack: `python hack.py`
+- Or you can download the exe version [Download](https://github.com/vncsms/Metin2FishBot/releases/tag/v1.1) and execute ``Metin2FishingBot`. Remenber to execute as admin.
 - When the bot is executing, the game window must be visible at all times and your mouse will be used by the bot. This is a visual bot, so it's kind of impossible for you to use your pc at the same time the bot is running because the bot needs to click with your mouse.
 - Sometimes you'll find a daily bonus, the bot is not prepared for this yet. You need to click on any option. (This will be fixed soon).
 
