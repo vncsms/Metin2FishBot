@@ -13,7 +13,7 @@ class FishingBot:
     fish_pos_x = None
     fish_pos_y = None
     fish_last_time = None
-    detect_text_enable = True
+    detect_text_enable = False
 
     FISH_RANGE = 74
     FISH_VELO_PREDICT = 30
