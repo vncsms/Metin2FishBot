@@ -47,7 +47,7 @@ This is a feature for only to fish selected fishs. The bot will detect the text 
 ### WARNING
 
 This feature only works if you have the hability to see what fish you are fishing. In my server you can buy from item mall(real money).
-IF YOU CAN'T SEE WATCH FISH YOU ARE FISHING DON'T ENABLE THIS FEATURE, OR THE BOT WILL SKIP EVERY FISH. JUST SKIP THIS TOPIC.
+IF YOU CAN'T SEE WHAT FISH YOU ARE FISHING DON'T ENABLE THIS FEATURE, OR THE BOT WILL SKIP EVERY FISH. JUST SKIP THIS TOPIC.
 
 ### How to use
 
