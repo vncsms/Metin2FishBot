@@ -5,6 +5,7 @@ import math
 from time import time
 from windowcapture import WindowCapture
 from hsvfilter import HsvFilter
+from fishfilter import Filter
 
 class FishingBot:
 
@@ -12,6 +13,7 @@ class FishingBot:
     fish_pos_x = None
     fish_pos_y = None
     fish_last_time = None
+    detect_text_enable = True
 
     FISH_RANGE = 74
     FISH_VELO_PREDICT = 30
@@ -21,6 +23,8 @@ class FishingBot:
 
     FILTER_CONFIG = [49, 0, 58, 134, 189, 189, 0, 0, 0, 0]
 
+    FISH_WINDOW_CLOSE = (430, 115)
+
     # set position of the fish windows
     # this value can be diferent by the sizes of the game window
 
@@ -29,12 +33,16 @@ class FishingBot:
 
     wincap = WindowCapture('METIN2')
 
+    fishfilter = Filter() if detect_text_enable else None
+
     # Load the needle image
 
     needle_img = cv.imread('images/fiss.jpg', cv.IMREAD_UNCHANGED)
     needle_img_clock = cv.imread('images/clock.jpg', cv.IMREAD_UNCHANGED)
 
     # Some time cooldowns
+
+    detect_text = True
 
     # for fps
 
@@ -122,7 +130,6 @@ class FishingBot:
 
         return False
 
-
     def runHack(self):
         screenshot = self.wincap.get_screenshot()
 
@@ -132,8 +139,6 @@ class FishingBot:
         detect_end_img = screenshot[self.FISH_WINDOW_POSITION[1]:self.FISH_WINDOW_POSITION[1]+self.FISH_WINDOW_SIZE[1],
                             self.FISH_WINDOW_POSITION[0]:self.FISH_WINDOW_POSITION[0]+self.FISH_WINDOW_SIZE[0]]
         crop_img = self.hsv_filter.apply_hsv_filter(crop_img)
-
-        # Print some information
 
         cv.putText(crop_img, 'FPS: ' + str(1/(time() - self.loop_time))[:2],
                 (10, 200), cv.FONT_HERSHEY_SIMPLEX,  0.5, (0, 255, 0), 2)
@@ -148,6 +153,7 @@ class FishingBot:
             mouse_y = int(self.BAIT_POSITION[1] + self.wincap.offset_y)
 
             if time() - self.timer_action > 2:
+                self.detect_text = True
                 pydirectinput.click(x=mouse_x, y=mouse_y, button='right')
                 self.state = 1
                 self.timer_action = time()
@@ -155,7 +161,7 @@ class FishingBot:
         # State to throw the bait
 
         if self.state == 1:
-            if time() - self.timer_action > 1:
+            if time() - self.timer_action > 2:
                 mouse_x = int(self.FISH_POSITION[0] + self.wincap.offset_x)
                 mouse_y = int(self.FISH_POSITION[1] + self.wincap.offset_y)
                 pydirectinput.click(x=mouse_x, y=mouse_y, button='right')
@@ -171,16 +177,33 @@ class FishingBot:
 
         # Countdown to finish the state
 
+        detected_end = self.detect_minigame(detect_end_img)
+
         if self.state == 3:
+
             if time() - self.timer_action > 15:
                 self.timer_action = time()
                 self.state = 0
+            if time() - self.timer_action > 5 and detected_end is False:
+                self.timer_action = time()
+                self.state = 0
+
+            if self.detect_text_enable and time() - self.timer_action > 1.5:
+                if self.detect_text:
+                    if self.fishfilter.match_with_text(screenshot) is False:
+                        mouse_x = int(self.wincap.offset_x + self.FISH_WINDOW_CLOSE[0])
+                        mouse_y = int(self.wincap.offset_y + self.FISH_WINDOW_CLOSE[1])
+                        pydirectinput.click(x=mouse_x, y=mouse_y, button='left')
+                        pydirectinput.click(x=mouse_x, y=mouse_y, button='left')
+
+                self.detect_text = False
+
 
         # make the click
 
-        if (time() - self.timer_mouse) > 0.3 and self.state == 3 and self.detect_minigame(detect_end_img):
+        if (time() - self.timer_mouse) > 0.3 and self.state == 3 and detected_end:
             
-            # Detect the fish
+            # Detect the fish            
 
             square_pos = self.detect(crop_img)
 
