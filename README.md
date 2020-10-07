@@ -5,11 +5,28 @@ A Metin2 fishing bot. The bot will play the minigame and automatically put the b
 The code was build from scrap from the repository: [https://github.com/learncodebygaming/opencv_tutorials](https://github.com/learncodebygaming/opencv_tutorials)
 
 ## Requirements:
-`python 3.+` and `pip`
+`python 3.8.5` and `pip`
 
-## Install:
+- Preferable use the version 3.8.5, because others versions is gettings some errors in the Opencv library.
 
-`pip install -r requirements`
+## Case you don't know how to install these requiremetns:
+
+- Download python https://www.python.org/downloads/release/python-385/ bottom of the page. You may download the executable.
+- Install Python.
+- Copy the path of your python. I'll appear something like that: `C:\Users\user\AppData\Local\Programs\Python\Python38-32`.
+- And paste inside your enviroment variables:
+- Also add a new one, but with the name `\Scripts` in the end. Like that: `C:\Users\user\AppData\Local\Programs\Python\Python38-32\Scripts`.
+- YOU HAVE PAY ATTENTION IN THE PATH, EVERY COMPUTER HAS A DIFERENT PATH, BECAUSE THE NAME OF THE USER.
+
+<img src="/images/python.png" width="600">
+
+- Download https://bootstrap.pypa.io/get-pip.py (You can just press CTRL + S)
+- Here you need to know how navigate inside console. To learn about: https://www.digitalcitizen.life/command-prompt-how-use-basic-commands
+- Open a CMD console and execute the file: `python get-pip.py`. You need to be in the same folder of the file to do That.
+- Now enter inside the bot folder and execute the command: `pip install virtualenv`
+- In the same folder: `virtualenv metin2`
+- In the same folder: `metin2\Scripts\activate`
+- Now you can follow the next topic.
 
 ## How to use:
 
@@ -38,6 +55,7 @@ pytesseract==0.3.6
    <img src="/images/atum.png" width="300">
 
 - To quit the bot you need to select the newly created window and press `q` or kill its execution in the command prompt.
+- Every time you want to execute the bot remenber to open as ADMIN e activate the virtualenv `metin2\Scripts\activate`.
 
 
 ## Text detect
