@@ -19,7 +19,7 @@ The code was build from scrap from the repository: [https://github.com/learncode
    <img src="/images/python.png" width="600">
 
 - Also add a new one, but with the name `\Scripts` in the end. Like that: `C:\Users\yourwindowsusername\AppData\Local\Programs\Python\Python38-32\Scripts`.
-- YOU HAVE PAY ATTENTION IN THE PATH, EVERY COMPUTER HAS A DIFERENT PATH, BECAUSE THE NAME OF THE USER.
+- YOU HAVE TO PAY ATTENTION IN THE PATH, EVERY COMPUTER HAS A DIFERENT PATH, BECAUSE THE NAME OF THE USER.
 - Download https://bootstrap.pypa.io/get-pip.py (You can just press CTRL + S)
 - Now you need to know how navigate inside console. To learn about: https://www.digitalcitizen.life/command-prompt-how-use-basic-commands
 - Open a CMD console and execute the file: `python get-pip.py`. You need to be in the same folder of the file to do That.
