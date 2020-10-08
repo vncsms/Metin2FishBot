@@ -15,6 +15,9 @@ The code was build from scrap from the repository: [https://github.com/learncode
 - Install Python.
 - Copy the path of your python. Is something like that: `C:\Users\yourwindowsusername\AppData\Local\Programs\Python\Python38-32`.
 - And paste inside your enviroment variables:
+
+   <img src="/images/python.png" width="600">
+
 - Also add a new one, but with the name `\Scripts` in the end. Like that: `C:\Users\yourwindowsusername\AppData\Local\Programs\Python\Python38-32\Scripts`.
 - YOU HAVE PAY ATTENTION IN THE PATH, EVERY COMPUTER HAS A DIFERENT PATH, BECAUSE THE NAME OF THE USER.
 - Download https://bootstrap.pypa.io/get-pip.py (You can just press CTRL + S)
