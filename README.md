@@ -7,21 +7,19 @@ The code was build from scrap from the repository: [https://github.com/learncode
 ## Requirements:
 `python 3.8.5` and `pip`
 
-- Preferable use the version 3.8.5, because others versions is gettings some errors in the Opencv library.
+- Preferable use the version 3.8.5, because others versions is getting few errors in the Opencv library installation.
 
-## Case you don't know how to install these requiremetns:
+## Case you don't know how to install these requirements:
 
 - Download python https://www.python.org/downloads/release/python-385/ bottom of the page. You may download the executable.
 - Install Python.
-- Copy the path of your python. I'll appear something like that: `C:\Users\user\AppData\Local\Programs\Python\Python38-32`.
+- Copy the path of your python. Is something like that: `C:\Users\yourwindowsusername\AppData\Local\Programs\Python\Python38-32`.
 - And paste inside your enviroment variables:
-- Also add a new one, but with the name `\Scripts` in the end. Like that: `C:\Users\user\AppData\Local\Programs\Python\Python38-32\Scripts`.
-- YOU HAVE PAY ATTENTION IN THE PATH, EVERY COMPUTER HAS A DIFERENT PATH, BECAUSE THE NAME OF THE USER.
-
 <img src="/images/python.png" width="600">
-
+- Also add a new one, but with the name `\Scripts` in the end. Like that: `C:\Users\yourwindowsusername\AppData\Local\Programs\Python\Python38-32\Scripts`.
+- YOU HAVE PAY ATTENTION IN THE PATH, EVERY COMPUTER HAS A DIFERENT PATH, BECAUSE THE NAME OF THE USER.
 - Download https://bootstrap.pypa.io/get-pip.py (You can just press CTRL + S)
-- Here you need to know how navigate inside console. To learn about: https://www.digitalcitizen.life/command-prompt-how-use-basic-commands
+- Now you need to know how navigate inside console. To learn about: https://www.digitalcitizen.life/command-prompt-how-use-basic-commands
 - Open a CMD console and execute the file: `python get-pip.py`. You need to be in the same folder of the file to do That.
 - Now enter inside the bot folder and execute the command: `pip install virtualenv`
 - In the same folder: `virtualenv metin2`
@@ -38,7 +36,7 @@ The code was build from scrap from the repository: [https://github.com/learncode
 
 - The game window must to be totally visible and not minimized.
 - Open the Windows CMD as admin. If you open without doing that the script will not be able to click inside the game.
-- Activate the virtualenv if you have it and install all requirements: `pip install -r requirements.txt`. Pip will install these following libraries:
+- Activate the virtualenv and install all requirements: `pip install -r requirements.txt`. Pip will install these following libraries:
 
 ```
 numpy==1.19.1
@@ -55,7 +53,7 @@ pytesseract==0.3.6
    <img src="/images/atum.png" width="300">
 
 - To quit the bot you need to select the newly created window and press `q` or kill its execution in the command prompt.
-- Every time you want to execute the bot remenber to open as ADMIN e activate the virtualenv `metin2\Scripts\activate`.
+- Every time you want to execute the bot remenber to open CMD console as ADMIN and activate the virtualenv `metin2\Scripts\activate`.
 
 
 ## Text detect
@@ -67,7 +65,7 @@ This is a feature for only to fish selected fishs. The bot will detect the text 
 This feature only works if you have the hability to see what fish you are fishing. In my server you can buy from item mall(real money).
 IF YOU CAN'T SEE WHAT FISH YOU ARE FISHING DON'T ENABLE THIS FEATURE, OR THE BOT WILL SKIP EVERY FISH. JUST SKIP THIS TOPIC.
 
-### How to use
+### How to use the text detect
 
 - First you need to download this software, it'll install text detection in your machine: https://github.com/UB-Mannheim/tesseract/wiki
 - Pay attention where in your drive you will install this software, we will need this path.
