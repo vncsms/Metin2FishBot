@@ -46,6 +46,7 @@ opencv-python==4.3.0.36
 PyDirectInput==1.0.2
 pywin32==228
 pytesseract==0.3.6
+PySimpleGUI==4.30.0
 ```
 
 - Execute the hack: `python hack.py`
