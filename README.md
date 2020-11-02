@@ -46,15 +46,27 @@ opencv-python==4.3.0.36
 PyDirectInput==1.0.2
 pywin32==228
 pytesseract==0.3.6
+PySimpleGUI==4.30.0
 ```
 
 - Execute the hack: `python hack.py`
+- Will open a screen like that:
+
+   <img src="/images/interface1.jpg" width="300">
+   
+- You can set a limit time in minutes to stop the bot.
+- To start the bot you need to press start, and to stop you can press the same button.
+
+   <img src="/images/interface2.jpg" width="300">
+
+- In the options you can set the delay time to bait, throw and start the minigame.
+   
 - When the bot is executing, the game window must be visible at all times and your mouse will be used by the bot. This is a visual bot, so it's kind of impossible for you to use your pc at the same time the bot is running because the bot needs to click with your mouse.
 - Sometimes you'll find a daily bonus, the bot is not prepared for this yet. You need to click on any option. (This will be fixed soon).
 
    <img src="/images/atum.png" width="300">
 
-- To quit the bot you need to select the newly created window and press `q` or kill its execution in the command prompt.
+- To stop the bot you can use time condition or press the button `STOP`.
 - Every time you want to execute the bot remenber to open CMD console as ADMIN and activate the virtualenv `metin2\Scripts\activate`.
 
 
