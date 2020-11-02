@@ -32,7 +32,7 @@ class FishingBot:
     FISH_WINDOW_SIZE = (280, 226)
     FISH_WINDOW_POSITION = (163, 125)
 
-    wincap = WindowCapture('METIN2')
+    wincap = None
 
     fishfilter = Filter() if detect_text_enable else None
 
