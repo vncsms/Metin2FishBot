@@ -52,11 +52,11 @@ pytesseract==0.3.6
 - YOU CAN'T MOVE THE Metin2 WINDOW. IF YOU DID, CLOSE THE PROGRAM AND OPEN AGAIN.
 - Will open a screen like that:
 
-   <img src="/images/interface1.png" width="300">
+   <img src="/images/interface1.jpg" width="300">
    
 - You can set a limit time in minutes to stop the bot.
 
-   <img src="/images/interface1.png" width="300">
+   <img src="/images/interface1.jpg" width="300">
 
 - In the options you can set the delay time to bait, throw and start the minigame.
    
