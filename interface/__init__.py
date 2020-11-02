@@ -16,7 +16,7 @@ class PyWindow:
                 [sg.Button('START', key='-BUTTONSTART-')]]
 
     def options_tab(self):
-        return [[sg.Text('You can set the values of coldowns.')],
+        return [[sg.Text('You can set the values of cooldowns.')],
                 [sg.Frame('Time configuration', [
                     [sg.Text('Time in seconds')],
                    [sg.Text('Wait to put bait'),
@@ -33,7 +33,7 @@ class PyWindow:
         tab2_layout = self.options_tab()
 
         tab_1 = sg.Tab('BOT', tab1_layout, font='Courier 15', key='-TAB1-')
-        tab_2 = sg.Tab('Options', tab2_layout, font='Courier 15', key='-TAB2-')
+        tab_2 = sg.Tab('OPTIONS', tab2_layout, font='Courier 15', key='-TAB2-')
 
         tab_group_layout = [[tab_1, tab_2]]
 
