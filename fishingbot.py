@@ -14,6 +14,7 @@ class FishingBot:
     fish_pos_y = None
     fish_last_time = None
     detect_text_enable = False
+    botting = False
 
     FISH_RANGE = 74
     FISH_VELO_PREDICT = 30
@@ -44,6 +45,14 @@ class FishingBot:
 
     detect_text = True
 
+    # Limit time
+
+    initial_time = None
+
+    end_time_enable = False
+
+    end_time = 0
+
     # for fps
 
     loop_time = time()
@@ -55,6 +64,10 @@ class FishingBot:
     # The timer beteween the states
 
     timer_action = time()
+
+    bait_time = 2
+    throw_time = 2
+    game_time = 2
 
     # This is the filter parameters, this help to find the right image
     hsv_filter = HsvFilter(*FILTER_CONFIG)
@@ -130,6 +143,25 @@ class FishingBot:
 
         return False
 
+    def set_to_begin(self, values):
+
+        print(values)
+
+        if values['-ENDTIMEP-']:
+            self.end_time_enable = True
+            try:
+                self.end_time  = int(values['-ENDTIME-'])
+            except:
+                self.end_time = 0
+
+        self.bait_time = values['-BAITTIME-']
+        self.throw_time = values['-THROWTIME-']
+        self.game_time = values['-STARTGAME-']
+
+        self.state = 0
+        self.initial_time = time()
+        self.timer_action = time()
+
     def runHack(self):
         screenshot = self.wincap.get_screenshot()
 
@@ -146,13 +178,18 @@ class FishingBot:
                 (10, 160), cv.FONT_HERSHEY_SIMPLEX,  0.5, (0, 255, 0), 2)
         self.loop_time = time()
 
+        # Verify total time
+
+        if self.end_time_enable and time() - self.initial_time > self.end_time:
+            self.botting = False
+
         # State to click put the bait in the rod
 
         if self.state == 0:
             mouse_x = int(self.BAIT_POSITION[0] + self.wincap.offset_x)
             mouse_y = int(self.BAIT_POSITION[1] + self.wincap.offset_y)
 
-            if time() - self.timer_action > 2:
+            if time() - self.timer_action > self.bait_time:
                 self.detect_text = True
                 pydirectinput.click(x=mouse_x, y=mouse_y, button='right')
                 self.state = 1
@@ -161,7 +198,7 @@ class FishingBot:
         # State to throw the bait
 
         if self.state == 1:
-            if time() - self.timer_action > 2:
+            if time() - self.timer_action > self.throw_time:
                 mouse_x = int(self.FISH_POSITION[0] + self.wincap.offset_x)
                 mouse_y = int(self.FISH_POSITION[1] + self.wincap.offset_y)
                 pydirectinput.click(x=mouse_x, y=mouse_y, button='right')
@@ -171,7 +208,7 @@ class FishingBot:
         # Delay to start the clicks
 
         if self.state == 2:
-            if time() - self.timer_action > 1.5:
+            if time() - self.timer_action > self.game_time:
                 self.state = 3
                 self.timer_action = time()
 
@@ -234,10 +271,12 @@ class FishingBot:
 
                     pydirectinput.click(x=mouse_x, y=mouse_y)
 
+        '''
         cv.imshow('Minha Janela', crop_img)
 
         if cv.waitKey(1) == ord('q'):
             cv.destroyAllWindows()
             return True
+        '''
     
-        return False
+        return crop_img
