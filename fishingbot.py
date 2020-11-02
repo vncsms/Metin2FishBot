@@ -156,6 +156,7 @@ class FishingBot:
         self.throw_time = values['-THROWTIME-']
         self.game_time = values['-STARTGAME-']
 
+        self.wincap = WindowCapture('METIN2')
         self.state = 0
         self.initial_time = time()
         self.timer_action = time()
