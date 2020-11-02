@@ -49,12 +49,23 @@ pytesseract==0.3.6
 ```
 
 - Execute the hack: `python hack.py`
+- YOU CAN'T MOVE THE Metin2 WINDOW. IF YOU DID, CLOSE THE PROGRAM AND OPEN AGAIN.
+- Will open a screen like that:
+
+   <img src="/images/interface1.png" width="300">
+   
+- You can set a limit time in minutes to stop the bot.
+
+   <img src="/images/interface1.png" width="300">
+
+- In the options you can set the delay time to bait, throw and start the minigame.
+   
 - When the bot is executing, the game window must be visible at all times and your mouse will be used by the bot. This is a visual bot, so it's kind of impossible for you to use your pc at the same time the bot is running because the bot needs to click with your mouse.
 - Sometimes you'll find a daily bonus, the bot is not prepared for this yet. You need to click on any option. (This will be fixed soon).
 
    <img src="/images/atum.png" width="300">
 
-- To quit the bot you need to select the newly created window and press `q` or kill its execution in the command prompt.
+- To stop the bot you can use time condition or press the button `STOP`.
 - Every time you want to execute the bot remenber to open CMD console as ADMIN and activate the virtualenv `metin2\Scripts\activate`.
 
 
