@@ -55,8 +55,9 @@ pytesseract==0.3.6
    <img src="/images/interface1.jpg" width="300">
    
 - You can set a limit time in minutes to stop the bot.
+- To start the bot you need to press start, and to stop you can press the same button.
 
-   <img src="/images/interface1.jpg" width="300">
+   <img src="/images/interface2.jpg" width="300">
 
 - In the options you can set the delay time to bait, throw and start the minigame.
    
