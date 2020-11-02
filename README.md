@@ -49,7 +49,6 @@ pytesseract==0.3.6
 ```
 
 - Execute the hack: `python hack.py`
-- YOU CAN'T MOVE THE Metin2 WINDOW. IF YOU DID, CLOSE THE PROGRAM AND OPEN AGAIN.
 - Will open a screen like that:
 
    <img src="/images/interface1.jpg" width="300">
