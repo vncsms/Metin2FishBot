@@ -145,12 +145,10 @@ class FishingBot:
 
     def set_to_begin(self, values):
 
-        print(values)
-
         if values['-ENDTIMEP-']:
             self.end_time_enable = True
             try:
-                self.end_time  = int(values['-ENDTIME-'])
+                self.end_time  = int(values['-ENDTIME-'])*60
             except:
                 self.end_time = 0
 
