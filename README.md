@@ -26,6 +26,16 @@ The code was build from scrap from the repository: [https://github.com/learncode
 - Now enter inside the bot folder and execute the command: `pip install virtualenv`
 - In the same folder: `virtualenv metin2`
 - In the same folder: `metin2\Scripts\activate`
+- Since you activated the virtualenv you can install all requirements: `pip install -r requirements.txt`. Pip will install these following libraries:
+
+```
+numpy==1.19.1
+opencv-python==4.3.0.36
+PyDirectInput==1.0.2
+pywin32==228
+pytesseract==0.3.6
+PySimpleGUI==4.30.0
+```
 - Now you can follow the next topic.
 
 ## How to use:
@@ -38,17 +48,6 @@ The code was build from scrap from the repository: [https://github.com/learncode
    <img src="/images/actionbar.png" width="300">
 
 - The game window must to be totally visible and not minimized.
-- Open the Windows CMD as admin. If you open without doing that the script will not be able to click inside the game.
-- Activate the virtualenv and install all requirements: `pip install -r requirements.txt`. Pip will install these following libraries:
-
-```
-numpy==1.19.1
-opencv-python==4.3.0.36
-PyDirectInput==1.0.2
-pywin32==228
-pytesseract==0.3.6
-PySimpleGUI==4.30.0
-```
 
 - Execute the hack: `python hack.py`
 - Will open a screen like that:
