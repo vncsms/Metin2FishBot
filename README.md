@@ -40,7 +40,7 @@ PySimpleGUI==4.30.0
 
 ## How to use:
 
-- First open the game in `800x600` resolution and `not fullscreen`. If the game is not in that resolution you need to change the values of some variables in the code (BAIT_POSITION, FISH_POSITION, FISH_WINDOW_POSITION), otherwise the bot will detect and click the wrong place in the screen.
+- First open the game in `800x600` resolution and `not fullscreen`, Otherwise the bot will detect and click the wrong place in the screen.
 - The code will look for a window that has the name: `Metin2`. If you have another window that also has this same name it is possible that the script will capture this other window instead. But if you want to run the bot and keep all windows open you need to grab the metin2 icon from taskbar and move it to the beginning. If you only have a game open you don't need to worry about this.
 - If your game has a diferent name you must change the name in the constant files: `constants.py`
 - Put the fish skill in the `1` hotkey and the bait in `2` hotkey. Equip your fishing rod.
@@ -49,7 +49,7 @@ PySimpleGUI==4.30.0
 
 - The game window must to be totally visible and not minimized.
 
-- Execute the hack: `python hack.py`
+- Open the executable as admin.
 - Will open a screen like that:
 
    <img src="/images/interface1.jpg" width="300">
@@ -62,12 +62,10 @@ PySimpleGUI==4.30.0
 - In the options you can set the delay time to bait, throw and start the minigame.
    
 - When the bot is executing, the game window must be visible at all times and your mouse will be used by the bot. This is a visual bot, so it's kind of impossible for you to use your pc at the same time the bot is running because the bot needs to click with your mouse.
-- Sometimes you'll find a daily bonus, the bot is not prepared for this yet. You need to click on any option. (This will be fixed soon).
 
    <img src="/images/atum.png" width="300">
 
 - To stop the bot you can use time condition or press the button `STOP`.
-- Every time you want to execute the bot remenber to open CMD console as ADMIN and activate the virtualenv `metin2\Scripts\activate`.
 
 
 ## Check list
