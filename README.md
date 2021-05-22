@@ -71,49 +71,6 @@ PySimpleGUI==4.30.0
 - Every time you want to execute the bot remenber to open CMD console as ADMIN and activate the virtualenv `metin2\Scripts\activate`.
 
 
-## Text detect
-
-This is a feature for only to fish selected fishs. The bot will detect the text from chat and will skip the fish that you don't want.
-
-### WARNING
-
-This feature only works if you have the hability to see what fish you are fishing. In my server you can buy from item mall(real money).
-IF YOU CAN'T SEE WHAT FISH YOU ARE FISHING DON'T ENABLE THIS FEATURE, OR THE BOT WILL SKIP EVERY FISH. JUST SKIP THIS TOPIC.
-
-### How to use the text detect
-
-- First you need to download this software, it'll install text detection in your machine: https://github.com/UB-Mannheim/tesseract/wiki
-- Pay attention where in your drive you will install this software, we will need this path.
-- Now enable the detection variable in the file `fishingbot.py` of this project: `detect_text_enable = False` to `detect_text_enable = True`. This is the line 16.
-- The are four configuration you will need change:
-
-   - First select your language:
-      - In the line 8 of the file `fishfilter.py`: `language = "eng"`
-      - In case your language is not English you need to download the trained data for your language; https://github.com/tesseract-ocr/tessdata
-      - Put your language trained data file inside the folder of `tessdata/` where you installed the Tesseract.
-      - In my case I download the file: `por.traineddata` and my language is portuguese `language = "por"`.
-      - If you put a language that you haven't the trained data the execution will generate an error.
-   - Insert the path of your Terrresact in the code:
-      - In the line 15 of the file `fishfilter.py` put the path of the installed Terresact:
-      - In my case: `pytesseract.pytesseract.tesseract_cmd='C:\\Program Files\\Tesseract-OCR\\tesseract.exe'`
-      - I believe this is the default path in case you just press next every step in the installation.
-      - If you put the wrong path will generate an error.
-   - Open the chat in the game:
-      - Put your chat of your game to the top and left as possible.
-      - Decrease the size of your chat as minimum you can:
-      - And filter only info messages
-      
-      <img src="/images/textdetect.png" width="400">
-
-   - Put the fishs you want.
-      - The file `fishs.txt` have all fish that the bot will filter.
-      - You need to erase the content of this file and put all fish you want to fish.
-      - The bot will see if the name of the fish is in inside of the text. So if put the name `Carpa` the bot will accept any fish that has this name so will accept `Carpa` or `Carpa Grande`, because this two fish contains `Carpa` in their names.
-   
-- You can run the bot and see the log of the execution, you will see the fishs you put in the files and the text detected.
-
-<img src="/images/log.png" width="400">
-
 ## Check list
 
 
