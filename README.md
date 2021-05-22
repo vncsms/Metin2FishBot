@@ -30,8 +30,9 @@ The code was build from scrap from the repository: [https://github.com/learncode
 
 ## How to use:
 
-- First open the game in `1024x768` resolution and `not fullscreen`. If the game is not in that resolution you need to change the values of some variables in the code (BAIT_POSITION, FISH_POSITION, FISH_WINDOW_POSITION), otherwise the bot will detect and click the wrong place in the screen.
+- First open the game in `800x600` resolution and `not fullscreen`. If the game is not in that resolution you need to change the values of some variables in the code (BAIT_POSITION, FISH_POSITION, FISH_WINDOW_POSITION), otherwise the bot will detect and click the wrong place in the screen.
 - The code will look for a window that has the name: `Metin2`. If you have another window that also has this same name it is possible that the script will capture this other window instead. But if you want to run the bot and keep all windows open you need to grab the metin2 icon from taskbar and move it to the beginning. If you only have a game open you don't need to worry about this.
+- If your game has a diferent name you must change the name in the constant files: `constants.py`
 - Put the fish skill in the `1` hotkey and the bait in `2` hotkey. Equip your fishing rod.
 
    <img src="/images/actionbar.png" width="300">
@@ -116,10 +117,6 @@ IF YOU CAN'T SEE WHAT FISH YOU ARE FISHING DON'T ENABLE THIS FEATURE, OR THE BOT
 ## Check list
 
 
-- [x] Detect the fish.
-- [x] Make a macro to fish (Bait and throw).
-- [x] Detect the fish only during the minigame.
-- [x] Skip fish using text detection.
 - [ ] Detect the daily bonus and select any option.
 - [ ] Use the fish bait item.
 - [ ] Use fish item from the inventory to save space.
