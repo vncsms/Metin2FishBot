@@ -38,7 +38,7 @@ PySimpleGUI==4.30.0
 pyinstaller==4.3
 ```
 
-- For you to generate the executable run: `pyinstaller --onefile hack.py`. When it's end move the executable file in the folder `dist` to the project's root.
+- To generate the executable run: `pyinstaller --onefile hack.py`. When it's end move the executable file in the folder `dist` to the project's root.
 
 - You also can watch the video to learn how run the bot
 
@@ -73,15 +73,16 @@ alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10" /></a>
 
 - To stop the bot you can use time condition or press the button `STOP`.
 
-- Now you also use the bot to solve the puzzle mini game. Just Select Puzzle Tab and open the puzzle mini game. Don't move the mini game puzzle window.
+- Now you also can use the bot to solve the mini game puzzle. Just Select Puzzle Tab and open the mini game puzzle. Don't move the mini game puzzle window.
 
 
 ## Check list
 
 
-- [ ] Detect the daily bonus and select any option.
+- [x] Detect the daily bonus and select any option.
 - [ ] Use the fish bait item.
 - [ ] Use fish item from the inventory to save space.
 - [ ] Throw away the fish item from the inventory.
 - [ ] Detect bait quantity.
+- [ ] Text Detection to skip fish. Was not working well the last version.
 
