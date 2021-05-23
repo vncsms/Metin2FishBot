@@ -15,6 +15,11 @@ class PyWindow:
                     ])],
                 [sg.Button('START', key='-BUTTONSTART-')]]
 
+
+    def puzzle_tab(self):
+        return [[sg.Text('Welcome To Metin2 Fishing BOT')],
+                [sg.Button('START', key='-BUTTONPUZZLESTART-')]]
+
     def options_tab(self):
         return [[sg.Text('You can set the values of cooldowns.')],
                 [sg.Frame('Time configuration', [
@@ -31,11 +36,13 @@ class PyWindow:
 
         tab1_layout = self.bot_tab()
         tab2_layout = self.options_tab()
+        tab3_layout = self.puzzle_tab()
 
         tab_1 = sg.Tab('BOT', tab1_layout, font='Courier 15', key='-TAB1-')
         tab_2 = sg.Tab('OPTIONS', tab2_layout, font='Courier 15', key='-TAB2-')
+        tab_3 = sg.Tab('PUZZLE', tab3_layout, font='Courier 15', key='-TAB3-')
 
-        tab_group_layout = [[tab_1, tab_2]]
+        tab_group_layout = [[tab_1, tab_2, tab_3]]
 
         return tab_group_layout
 

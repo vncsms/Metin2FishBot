@@ -6,6 +6,7 @@ from time import time
 from windowcapture import WindowCapture
 from hsvfilter import HsvFilter
 from fishfilter import Filter
+import constants
 
 class FishingBot:
 
@@ -19,8 +20,8 @@ class FishingBot:
     FISH_RANGE = 74
     FISH_VELO_PREDICT = 30
 
-    BAIT_POSITION = (473, 750)
-    FISH_POSITION = (440, 750)
+    # BAIT_POSITION = (473, 750)
+    # FISH_POSITION = (440, 750)
 
     FILTER_CONFIG = [49, 0, 58, 134, 189, 189, 0, 0, 0, 0]
 
@@ -30,7 +31,7 @@ class FishingBot:
     # this value can be diferent by the sizes of the game window
 
     FISH_WINDOW_SIZE = (280, 226)
-    FISH_WINDOW_POSITION = (163, 125)
+    FISH_WINDOW_POSITION = (95, 80)
 
     wincap = None
 
@@ -73,9 +74,6 @@ class FishingBot:
     hsv_filter = HsvFilter(*FILTER_CONFIG)
 
     state = 0
-
-
-
 
     def detect(self, haystack_img):
 
@@ -132,6 +130,7 @@ class FishingBot:
             self.fish_pos_x = pos_x
             self.fish_pos_y = pos_y
             self.fish_last_time = time()
+
         return None
 
     def detect_minigame(self, haystack_img):
@@ -142,6 +141,15 @@ class FishingBot:
             return True
 
         return False
+
+    def detect_daily_reward(self, image):
+
+        for i in range(0, 5):
+            for j in range(0, 5):
+                if image[10 + i,10 +  j, 0] + image[10 + i,10 +  j, 1] + image[10 + i,10 +  j, 2] > 0:
+                    return False
+
+        return True
 
     def set_to_begin(self, values):
 
@@ -156,10 +164,15 @@ class FishingBot:
         self.throw_time = values['-THROWTIME-']
         self.game_time = values['-STARTGAME-']
 
-        self.wincap = WindowCapture('METIN2')
+        self.wincap = WindowCapture(constants.GAME_NAME)
         self.state = 0
         self.initial_time = time()
         self.timer_action = time()
+
+        mouse_x = int(self.FISH_WINDOW_POSITION[0] + self.wincap.offset_x + 200)
+        mouse_y = int(self.FISH_WINDOW_POSITION[1] + self.wincap.offset_y + 200)
+
+        pydirectinput.click(x=mouse_x, y=mouse_y, button='right')
 
     def runHack(self):
         screenshot = self.wincap.get_screenshot()
@@ -167,6 +180,7 @@ class FishingBot:
         # crop and aply hsv filter
         crop_img = screenshot[self.FISH_WINDOW_POSITION[1]:self.FISH_WINDOW_POSITION[1]+self.FISH_WINDOW_SIZE[1],
                             self.FISH_WINDOW_POSITION[0]:self.FISH_WINDOW_POSITION[0]+self.FISH_WINDOW_SIZE[0]]
+        
         detect_end_img = screenshot[self.FISH_WINDOW_POSITION[1]:self.FISH_WINDOW_POSITION[1]+self.FISH_WINDOW_SIZE[1],
                             self.FISH_WINDOW_POSITION[0]:self.FISH_WINDOW_POSITION[0]+self.FISH_WINDOW_SIZE[0]]
         crop_img = self.hsv_filter.apply_hsv_filter(crop_img)
@@ -177,6 +191,13 @@ class FishingBot:
                 (10, 160), cv.FONT_HERSHEY_SIMPLEX,  0.5, (0, 255, 0), 2)
         self.loop_time = time()
 
+        daily = self.detect_daily_reward(screenshot)
+
+        if daily:
+            mouse_x = int(self.wincap.offset_x + 350)
+            mouse_y = int(self.wincap.offset_y + 280)
+            pydirectinput.click(x=mouse_x, y=mouse_y)
+
         # Verify total time
 
         if self.end_time_enable and time() - self.initial_time > self.end_time:
@@ -185,12 +206,11 @@ class FishingBot:
         # State to click put the bait in the rod
 
         if self.state == 0:
-            mouse_x = int(self.BAIT_POSITION[0] + self.wincap.offset_x)
-            mouse_y = int(self.BAIT_POSITION[1] + self.wincap.offset_y)
 
             if time() - self.timer_action > self.bait_time:
                 self.detect_text = True
-                pydirectinput.click(x=mouse_x, y=mouse_y, button='right')
+                pydirectinput.keyDown('2')
+                pydirectinput.keyUp('2')
                 self.state = 1
                 self.timer_action = time()
 
@@ -198,9 +218,8 @@ class FishingBot:
 
         if self.state == 1:
             if time() - self.timer_action > self.throw_time:
-                mouse_x = int(self.FISH_POSITION[0] + self.wincap.offset_x)
-                mouse_y = int(self.FISH_POSITION[1] + self.wincap.offset_y)
-                pydirectinput.click(x=mouse_x, y=mouse_y, button='right')
+                pydirectinput.keyDown('1')
+                pydirectinput.keyUp('1')
                 self.state = 2
                 self.timer_action = time()
 
@@ -277,5 +296,5 @@ class FishingBot:
             cv.destroyAllWindows()
             return True
         '''
-    
+
         return crop_img
