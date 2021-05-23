@@ -35,6 +35,7 @@ PyDirectInput==1.0.2
 pywin32==228
 pytesseract==0.3.6
 PySimpleGUI==4.30.0
+pyinstaller==4.3
 ```
 - Now you can follow the next topic.
 
