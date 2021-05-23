@@ -37,7 +37,14 @@ pytesseract==0.3.6
 PySimpleGUI==4.30.0
 pyinstaller==4.3
 ```
-- Now you can follow the next topic.
+
+- For you to generate the executable run: `pyinstaller --onefile hack.py`. When it's end move the executable file in the folder `dist` to the project's root.
+
+- You also can watch the video to learn how run the bot
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=Kcvmzz3MXnQ
+" target="_blank"><img src="http://img.youtube.com/vi/Kcvmzz3MXnQ/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10" /></a>
 
 ## How to use:
 
@@ -64,9 +71,9 @@ pyinstaller==4.3
    
 - When the bot is executing, the game window must be visible at all times and your mouse will be used by the bot. This is a visual bot, so it's kind of impossible for you to use your pc at the same time the bot is running because the bot needs to click with your mouse.
 
-   <img src="/images/atum.png" width="300">
-
 - To stop the bot you can use time condition or press the button `STOP`.
+
+- Now you also use the bot to solve the puzzle mini game. Just Select Puzzle Tab and open the puzzle mini game. Don't move the mini game puzzle window.
 
 
 ## Check list
