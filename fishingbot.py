@@ -146,7 +146,7 @@ class FishingBot:
 
         for i in range(0, 5):
             for j in range(0, 5):
-                if image[10 + i,10 +  j, 0] + image[10 + i,10 +  j, 1] + image[10 + i,10 +  j, 2] > 0:
+                if int(image[10 + i,10 +  j, 0]) + int(image[10 + i,10 +  j, 1]) + int(image[10 + i,10 +  j, 2]) > 0:
                     return False
 
         return True
