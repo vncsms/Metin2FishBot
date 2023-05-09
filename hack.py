@@ -25,19 +25,19 @@ while True:
 
     if fishbot.botting:
         fishbot.runHack()
-        window.FindElement('-BUTTONSTART-').update('STOP')
+        window['-BUTTONSTART-'].update('STOP')
     else:
-        window.FindElement('-BUTTONSTART-').update('START')
+        window['-BUTTONSTART-'].update('START')
 
     if puzzleBot.botting:
         try:
             puzzleBot.runHack()
-            window.FindElement('-BUTTONPUZZLESTART-').update('STOP')
+            window['-BUTTONPUZZLESTART-'].update('STOP')
         except:
             puzzleBot.botting = not puzzleBot.botting
             fishbot.botting = False
 
     else:
-        window.FindElement('-BUTTONPUZZLESTART-').update('START')
+        window['-BUTTONPUZZLESTART-'].update('START')
 
 window.close()
