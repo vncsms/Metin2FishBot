@@ -5,20 +5,20 @@ A Metin2 fishing bot. The bot will play the minigame and automatically put the b
 The code was build from scrap from the repository: [https://github.com/learncodebygaming/opencv_tutorials](https://github.com/learncodebygaming/opencv_tutorials)
 
 ## Requirements:
-`python 3.8.5` and `pip`
+`python 3.11` and `pip`
 
-- Preferable use the version 3.8.5, because others versions is getting few errors in the Opencv library installation.
+- Preferable use the version 3.11, because others versions is getting few errors in the Opencv library installation.
 
 ## Case you don't know how to install these requirements:
 
-- Download python https://www.python.org/downloads/release/python-385/ bottom of the page. You may download the executable.
+- Download python https://www.python.org/downloads/release/python-311/ bottom of the page. You may download the executable.
 - Install Python.
-- Copy the path of your python. Is something like that: `C:\Users\yourwindowsusername\AppData\Local\Programs\Python\Python38-32`.
+- Copy the path of your python. Is something like that: `C:\Users\yourwindowsusername\AppData\Local\Programs\Python\Python311`.
 - And paste inside your enviroment variables:
 
    <img src="/images/python.png" width="600">
 
-- Also add a new one, but with the name `\Scripts` in the end. Like that: `C:\Users\yourwindowsusername\AppData\Local\Programs\Python\Python38-32\Scripts`.
+- Also add a new one, but with the name `\Scripts` in the end. Like that: `C:\Users\yourwindowsusername\AppData\Local\Programs\Python\Python311\Scripts`.
 - YOU HAVE TO PAY ATTENTION IN THE PATH, EVERY COMPUTER HAS A DIFERENT PATH, BECAUSE THE NAME OF THE USER.
 - Download https://bootstrap.pypa.io/get-pip.py (You can just press CTRL + S)
 - Now you need to know how navigate inside console. To learn about: https://www.digitalcitizen.life/command-prompt-how-use-basic-commands
@@ -29,22 +29,20 @@ The code was build from scrap from the repository: [https://github.com/learncode
 - Since you activated the virtualenv you can install all requirements: `pip install -r requirements.txt`. Pip will install these following libraries:
 
 ```
-numpy==1.19.1
-opencv-python==4.3.0.36
-PyDirectInput==1.0.2
-pywin32==228
-pytesseract==0.3.6
-PySimpleGUI==4.30.0
-pyinstaller==4.3
+numpy
+opencv-python
+PyDirectInput
+pywin32
+pytesseract
+PySimpleGUI
+pyinstaller
 ```
 
 - To generate the executable run: `pyinstaller --onefile hack.py`. When it's end move the executable file in the folder `dist` to the project's root.
 
-- You also can watch the video to learn how run the bot
+- You also can watch the video to learn how run the bot. The versions on the video may be different ( It's an old video ).
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=Kcvmzz3MXnQ
-" target="_blank"><img src="http://img.youtube.com/vi/Kcvmzz3MXnQ/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10" /></a>
+https://drive.google.com/file/d/1LV5l4il2IN62abYDD4pKdgSx6bEs1cIk/view
 
 ## How to use:
 
