@@ -48,7 +48,7 @@ https://drive.google.com/file/d/1LV5l4il2IN62abYDD4pKdgSx6bEs1cIk/view
 
 - First open the game in `800x600` resolution and `not fullscreen`, Otherwise the bot will detect and click the wrong place in the screen.
 - The code will look for a window that has the name: `Metin2`. If you have another window that also has this same name it is possible that the script will capture this other window instead. But if you want to run the bot and keep all windows open you need to grab the metin2 icon from taskbar and move it to the beginning. If you only have a game open you don't need to worry about this.
-- If your game has a diferent name you must change the name in the constant files: `constants.py`
+- If your game has a diferent name you must change the name in the constant files: `constants.py`. Remember to generate the the executable again if you did.
 - Put the fish skill in the `1` hotkey and the bait in `2` hotkey. Equip your fishing rod.
 
    <img src="/images/actionbar.png" width="300">
