@@ -9,6 +9,9 @@ from piece import Piece
 import json
 import constants
 
+
+fish_jigsaw_chest = cv.imread("images/fish_jigsaw_chest.png")
+
 class PuzzleBot:
 
     #properties
@@ -189,6 +192,55 @@ class PuzzleBot:
 
         return None
 
+    def try_to_put_chest(self):
+        screenshot = self.wincap.get_screenshot()
+        result = cv.matchTemplate(screenshot, fish_jigsaw_chest, cv.TM_CCOEFF_NORMED)
+        threshold = 0.7
+
+        min_val, max_val, min_loc, max_loc = cv.minMaxLoc(result)
+
+        # cv.rectangle(
+        #     screenshot,
+        #     max_loc,
+        #     (max_loc[0] + fish_jigsaw_chest.shape[1], max_loc[1] + fish_jigsaw_chest.shape[0]),
+        #     (0, 255, 255),
+        #     2,
+        # )
+        # cv.imshow("result", screenshot)
+        # cv.waitKey(0)
+
+        if max_val < threshold:
+            return False
+        mouse_x = int(
+            max_loc[0] + fish_jigsaw_chest.shape[1] / 2 + self.wincap.offset_x
+        )
+        mouse_y = int(
+            max_loc[1] + fish_jigsaw_chest.shape[0] / 2 + self.wincap.offset_y
+        )
+        # click the chest
+        pydirectinput.click(x=mouse_x, y=mouse_y, button="left")
+
+        mouse_x = int(
+            self.PUZZLE_GET_NEW_PIECE[0]
+            + self.PUZZLE_WINDOW_POSITION[0]
+            + self.wincap.offset_x
+        )
+        mouse_y = int(
+            self.PUZZLE_GET_NEW_PIECE[1]
+            + self.PUZZLE_WINDOW_POSITION[1]
+            + self.wincap.offset_y
+        )
+        # click the place where the piece will be
+        pydirectinput.click(x=mouse_x, y=mouse_y, button="left")
+        # click the board
+        pydirectinput.click(
+            self.wincap.offset_x + self.PUZZLE_WINDOW_POSITION[0],
+            self.wincap.offset_y + self.PUZZLE_WINDOW_POSITION[1],
+            button="left",
+        )
+        return True
+
+
     def runHack(self):
         
         crop_image = self.get_image()
@@ -202,8 +254,9 @@ class PuzzleBot:
             if time() - self.timer_action > timep:
 
                 if self.detect_end_game(crop_image):
-                    self.botting = False
-                    return None
+                    if not self.try_to_put_chest():
+                        self.botting = False
+                        return None
 
                 pydirectinput.click(x=mouse_x, y=mouse_y, button='left')
                 self.state = 1
