@@ -11,7 +11,7 @@ The code was build from scrap from the repository: [https://github.com/learncode
 
 ## Case you don't know how to install these requirements:
 
-- Download python https://www.python.org/downloads/release/python-311/ bottom of the page. You may download the executable.
+- Download python [https://www.python.org/downloads/release/python-3124/](https://www.python.org/downloads/release/python-3124/) bottom of the page. You may download the executable.
 - Install Python.
 - Copy the path of your python. Is something like that: `C:\Users\yourwindowsusername\AppData\Local\Programs\Python\Python311`.
 - And paste inside your enviroment variables:
