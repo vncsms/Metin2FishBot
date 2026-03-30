@@ -34,7 +34,7 @@ opencv-python
 PyDirectInput
 pywin32
 pytesseract
-PySimpleGUI
+FreeSimpleGUI
 pyinstaller
 ```
 
