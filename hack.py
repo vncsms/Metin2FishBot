@@ -1,7 +1,7 @@
 from fishingbot import FishingBot
 from puzzle import PuzzleBot
 from interface import PyWindow
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 window = PyWindow().window
 fishbot = FishingBot()
