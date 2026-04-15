@@ -66,12 +66,16 @@ class PuzzleBot:
                             color=(0, 255, 255), thickness=4, lineType=cv.LINE_4)
 
         self.tetris.board = board
-        if self.tetris.count_zeros == 0:
+        zeros = self.tetris.count_zeros()
+
+        print(f"[PUZZLE] Freie Felder: {zeros}")
+
+        if zeros == 0:
             self.tetris.first = 0
             self.tetris.second = 0
         else:
             self.tetris.first = 1
-            self.tetris.second = 1
+            self.tetris.second = 1    
 
     def get_image(self):
 
@@ -159,7 +163,7 @@ class PuzzleBot:
             mouse_y = 15 + paint_c*pos[0] + self.PUZZLE_WINDOW_POSITION[1] + self.wincap.offset_y
             pydirectinput.click(mouse_x, mouse_y)
 
-            return None
+            return True
 
         if decision == 2:
             return None
@@ -282,12 +286,14 @@ class PuzzleBot:
         if self.state == 4:
 
             if time() - self.timer_action > timep:
+                crop_image = self.get_image()
+                self.new_piece = self.get_new_piece_color(crop_image)
                 self.state = 5
                 self.timer_action = time()
-                self.new_piece = self.get_new_piece_color(crop_image)
 
         if self.state == 5:
             if time() - self.timer_action > timep:
+                crop_image = self.get_image()
                 self.timer_action = time()
                 self.set_puzzle_state(crop_image)
                 if self.play_game():

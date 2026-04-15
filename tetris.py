@@ -36,11 +36,11 @@ class Tetris:
 
     def count_zeros(self):
         total = 0
-        for i in self.board:
-            for l in self.board:
-                total += 1
-
-        return 24 - total
+        for row in self.board:
+            for cell in row:
+                if cell == 0:
+                    total += 1
+        return total
 
     def verify_end(self):
 
